@@ -5,6 +5,10 @@ const IM = {
     project8: "assets/img/project8.jpg",
     project6: "assets/img/project6.jpg",
     project10: "assets/img/project10.jpg",
+    hack: "assets/img/cert-25.jpg",
+    subhan: "https://subhan-khan-por.netlify.app/assets/og-image.jpg",
+    shujaah: "https://shujaah-masood-portfolio.netlify.app/assets/images/home-management.webp",
+    nimra: "https://nimra-sarfaz.netlify.app/project1.jpg",
   },
   VID = {
     Video1: "assets/video/Video1.mp4",
@@ -12,6 +16,12 @@ const IM = {
     Video3: "assets/video/Video3.mp4",
   },
   CERTS = [
+    {
+      t: "AI Hackathon: Certificate of Participation",
+      o: "Alibaba Cloud AI Hackathon Pakistan 2026",
+      d: "Oct 2026",
+      s: "assets/img/cert-25.jpg",
+    },
     {
       t: "Video Editing & Animations",
       o: "NextGen Digital University",
@@ -94,7 +104,8 @@ const IM = {
       '\nconst hamburger = document.querySelector(".hamburger");\nconst navMenu = document.querySelector(".nav-menu");\n\nhamburger.addEventListener("click", () => {\n    hamburger.classList.toggle("active");\n    navMenu.classList.toggle("active");\n});\n\ndocument.querySelectorAll(".nav-link").forEach(link => {\n    link.addEventListener("click", () => {\n        hamburger.classList.remove("active");\n        navMenu.classList.remove("active");\n    });\n});\n\ndocument.querySelectorAll(\'a[href^="#"]\').forEach(anchor => {\n    anchor.addEventListener("click", function(e) {\n        e.preventDefault();\n        const target = document.querySelector(this.getAttribute("href"));\n        target.scrollIntoView({ behavior: "smooth" });\n    });\n});\n\nconst faders = document.querySelectorAll(".fade-in-up, .slide-in-left, .card-animate");\n\nconst observer = new IntersectionObserver((entries, obs) => {\n    entries.forEach(entry => {\n        if (!entry.isIntersecting) return;\n        entry.target.classList.add("show");\n        obs.unobserve(entry.target);\n    });\n}, { threshold: 0.2 });\n\nfaders.forEach(el => observer.observe(el));\n\nconst sections = document.querySelectorAll("section");\nconst navLinks = document.querySelectorAll(".nav-link");\n\nwindow.addEventListener("scroll", () => {\n\n\u2026',
   },
   CVURL = "assets/cv/Eman-Fatima-CV.pdf",
-  AV = "assets/img/avatar.jpg";
+  AV = "assets/img/avatar.jpg",
+  AB = "assets/img/about.jpg";
 
 /* =====================================================
    SETTINGS: edit these numbers to update the GitHub stats
@@ -183,6 +194,36 @@ const PR = [
     img: "project10",
     tags: ["Portfolio", "Visual Design"],
     role: "Design and development",
+  },
+  {
+    id: "subhan-khan",
+    t: "Subhan Khan Portfolio",
+    c: "Web Development",
+    d: "Portfolio for a graphic designer and web developer with a 50-piece design gallery, services, FAQ and contact form.",
+    img: "subhan",
+    live: "https://subhan-khan-por.netlify.app/",
+    tags: ["Portfolio", "Design Gallery", "Responsive"],
+    role: "Portfolio website design and development",
+  },
+  {
+    id: "shujaah-masood",
+    t: "Shujaah Masood Portfolio",
+    c: "Web Development",
+    d: "Developer portfolio for a full-stack, Flutter and AI engineer with filterable projects, services and a contact form.",
+    img: "shujaah",
+    live: "https://shujaah-masood-portfolio.netlify.app/",
+    tags: ["Portfolio", "Filterable Projects", "Responsive"],
+    role: "Portfolio website design and development",
+  },
+  {
+    id: "nimra-sarfaz",
+    t: "Nimra Sarfaz Portfolio",
+    c: "Web Development",
+    d: "Portfolio for a full-stack web developer and graphic designer with dark mode, project cards and video walkthroughs.",
+    img: "nimra",
+    live: "https://nimra-sarfaz.netlify.app/",
+    tags: ["Portfolio", "Dark Mode", "Video Demos"],
+    role: "Portfolio website design and development",
   },
 ];
 const REPOS = [
@@ -372,7 +413,7 @@ let SN = 0;
 const hd = (t, h, s) =>
   `<header class="pgh sh"><div class="wrap"><span class="tag">${String(++SN).padStart(2, "0")} — ${t}</span><h2 class="sec-h rv">${h}</h2><p class="sub">${s || ""}</p></div></header>`;
 const pcard = (p, i) =>
-  `<article class="card pr rv" style="--d:${(i % 3) * 0.1}s" tabindex="0" data-go="${p.id}">${pimg(p)}<span class="badge" style="align-self:flex-start">${p.c}</span><h3>${p.t}</h3><p style="color:var(--mut);font-size:15px">${p.d}</p>${tg(p.tags)}<div class="acts"><button class="btn p" data-go="${p.id}">View Project</button>${p.gh ? `<a class="btn o" href="${p.gh}" target="_blank" rel="noopener">GitHub ↗</a>` : ""}</div></article>`;
+  `<article class="card pr rv" style="--d:${(i % 3) * 0.1}s" tabindex="0" data-go="${p.id}">${pimg(p)}<span class="badge" style="align-self:flex-start">${p.c}</span><h3>${p.t}</h3><p style="color:var(--mut);font-size:15px">${p.d}</p>${tg(p.tags)}<div class="acts"><button class="btn p" data-go="${p.id}">View Project</button>${p.live ? `<a class="btn o" href="${p.live}" target="_blank" rel="noopener">Live Demo ↗</a>` : ""}${p.gh ? `<a class="btn o" href="${p.gh}" target="_blank" rel="noopener">GitHub ↗</a>` : ""}</div></article>`;
 const soc = `<div class="soc" aria-label="Social links"><a href="${GH.slice(0, -1)}" target="_blank" rel="noopener" aria-label="GitHub">${ic("github")}</a><a href="${LI}" target="_blank" rel="noopener" aria-label="LinkedIn">${ic("linkedin")}</a><a href="https://x.com/EmanFatiamweb" target="_blank" rel="noopener" aria-label="X">${ic("xs")}</a><a href="https://www.facebook.com/share/1HxTVPQXF5/" target="_blank" rel="noopener" aria-label="Facebook">${ic("fb")}</a><a href="mailto:emanfatima13308@gmail.com" aria-label="Email">${ic("mail")}</a></div>`;
 /* =====================================================
    SECTION TEMPLATES (one function per section)
@@ -393,7 +434,7 @@ const PG = {
       "Hi, I'm <b>Eman</b>",
       "Full-Stack Web Developer | React.js & Modern Websites | Responsive UI/UX",
     ) +
-    `<section class="pad"><div class="wrap ab"><div class="rv l"><div class="about"><p>I focus on building modern, responsive, user-friendly websites and web applications designed around real business needs — from landing pages and business sites to interactive web apps and portfolios.</p><p>I'm studying BS Computer Science at Virtual University of Pakistan (5th semester), exploring the MERN stack, AI integration and machine learning, and I design as well as I code. My goal is to become a top freelance developer.</p></div><div class="cta"><button class="btn p cv">⬇ Download CV</button><a class="btn o" href="${LI}" target="_blank" rel="noopener">LinkedIn ↗</a></div>${soc}</div><div class="rv r pic"><div class="aura"></div><div class="frame"><img src="${AV}" alt="Eman Fatima portrait" loading="lazy"></div></div></div></section>
+    `<section class="pad"><div class="wrap ab"><div class="rv l"><div class="about"><p>I focus on building modern, responsive, user-friendly websites and web applications designed around real business needs — from landing pages and business sites to interactive web apps and portfolios.</p><p>I'm studying BS Computer Science at Virtual University of Pakistan (5th semester), exploring the MERN stack, AI integration and machine learning, and I design as well as I code. My goal is to become a top freelance developer.</p></div><div class="ainfo">${[["Based in","Lahore, Punjab, Pakistan"],["Studying","BSCS · Virtual University of Pakistan"],["Focus","React.js, MERN stack & UI/UX"],["Availability","Freelance & remote work"]].map((x) => `<div class="card"><small>${x[0]}</small><b>${x[1]}</b></div>`).join("")}</div></div><div class="rv r pic"><div class="aura"></div><div class="frame"><img src="${AB}" alt="Illustrated portrait of Eman Fatima" loading="lazy"></div></div></div></section>
 <section style="background:var(--bg2)" class="pad"><div class="wrap"><h2 class="sec-h">I can <b>help with</b></h2><div class="pills mt">${["Business & Corporate Websites", "Landing Pages", "Portfolio Websites", "React.js Websites", "Responsive Development", "WordPress Websites", "UI/UX Web Design", "Redesigns & Improvements"].map((x) => `<span>${x}</span>`).join("")}</div><h2 class="sec-h mt" style="margin-top:50px">Achievements</h2><div class="grid3"><div class="card rv"><h3>🏆 Alibaba Cloud AI Hackathon</h3><p style="color:var(--mut)">Participated in the Alibaba Cloud AI Hackathon Pakistan 2026.</p></div><div class="card rv"><h3>🌱 Squad Leader</h3><p style="color:var(--mut)">Leading a team of interns at GAO RFID Inc.</p></div><div class="card rv"><h3>🎓 ${CERTS.length} Certificates</h3><p style="color:var(--mut)">Web development, AI, machine learning and design.</p></div></div></div></section>
 <section class="pad"><div class="wrap">${stats}</div></section>`,
   experience: () =>
@@ -493,8 +534,8 @@ const PG = {
       "Let's build something <b>together</b>",
       "Have a website idea or want to improve an existing one? Send a message.",
     ) +
-    `<section class="pad"><div class="wrap cn"><div class="ci rv l"><a href="mailto:emanfatima13308@gmail.com"><b>✉</b>emanfatima13308@gmail.com</a><a href="tel:+923270218838"><b>☎</b>+92 327 0218838</a><a href="#/contact"><b>⌖</b>Lahore, Punjab, Pakistan</a><a href="${LI}" target="_blank" rel="noopener"><b>in</b>linkedin.com/in/eman-fatima-web</a><a href="${GH}" target="_blank" rel="noopener"><b>GH</b>github.com/Eman-fatima-web</a><a href="https://x.com/EmanFatiamweb" target="_blank" rel="noopener"><b>X</b>@EmanFatiamweb</a><a href="https://www.facebook.com/share/1HxTVPQXF5/" target="_blank" rel="noopener"><b>f</b>Facebook</a><p class="mt"><button class="btn p cv">⬇ Download CV</button></p></div>
-<form class="card rv r" id="form" method="POST" novalidate><p class="hp"><label>Leave empty <input name="_honey" tabindex="-1" autocomplete="off"></label></p><div class="fld"><label for="n">Name</label><input id="n" name="name" autocomplete="name"><span class="err" id="en"></span></div><div class="fld"><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email"><span class="err" id="ee"></span></div><div class="fld"><label for="s">Subject</label><input id="s" name="subject"><span class="err" id="es"></span></div><div class="fld"><label for="m">Message</label><textarea id="m" name="message" rows="5"></textarea><span class="err" id="em"></span></div><button class="btn p" id="sb" type="submit"><span class="sp"></span><span id="sl">Send message</span></button><div class="msg" id="msg" role="status" aria-live="polite"></div></form></div></section>`,
+    `<section class="pad"><div class="wrap cn"><div class="ci rv l"><a href="mailto:emanfatima13308@gmail.com"><b>✉</b>emanfatima13308@gmail.com</a><a href="tel:+923270218838"><b>☎</b>+92 327 0218838</a><a href="https://wa.me/923270218838" target="_blank" rel="noopener"><b>${ic("call")}</b>WhatsApp: +92 327 0218838</a><a href="#/contact"><b>⌖</b>Lahore, Punjab, Pakistan</a><a href="${LI}" target="_blank" rel="noopener"><b>in</b>linkedin.com/in/eman-fatima-web</a><a href="${GH}" target="_blank" rel="noopener"><b>GH</b>github.com/Eman-fatima-web</a><a href="https://x.com/EmanFatiamweb" target="_blank" rel="noopener"><b>X</b>@EmanFatiamweb</a><a href="https://www.facebook.com/share/1HxTVPQXF5/" target="_blank" rel="noopener"><b>f</b>Facebook</a><p class="mt"><button class="btn p cv">⬇ Download CV</button></p></div>
+<form class="card rv r" id="form" method="POST" novalidate><p class="hp"><label>Leave empty <input name="_honey" tabindex="-1" autocomplete="off"></label></p><div class="fld"><label for="n">Name</label><input id="n" name="name" autocomplete="name"><span class="err" id="en"></span></div><div class="fld"><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email"><span class="err" id="ee"></span></div><div class="fld"><label for="s">Subject</label><input id="s" name="subject"><span class="err" id="es"></span></div><div class="fld"><label for="m">Message</label><textarea id="m" name="message" rows="5"></textarea><span class="err" id="em"></span></div><button class="btn p" id="sb" type="submit"><span class="sp"></span><span id="sl">Send message</span></button><button class="btn o" id="wa" type="button" style="margin-top:12px;width:100%;justify-content:center">Chat on WhatsApp with +92 327 0218838</button><div class="msg" id="msg" role="status" aria-live="polite"></div></form></div></section>`,
 };
 
 const E = (h) =>
@@ -686,7 +727,7 @@ let anim = 0;
 function render() {
   SN = 0;
   const hp = PG.home().split("\n<section");
-  let h = hp[0] + "<section" + hp[1] + "</section>";
+  let h = hp[0];
   let alt = 0;
   ORDER.forEach((k) => {
     if (k === "marquee") {
@@ -875,17 +916,16 @@ function initDesign() {
 function form() {
   const F = $("#form"),
     MAIL = "emanfatima13308@gmail.com",
+    WA = "923270218838",
     ENDPOINT = "https://formsubmit.co/ajax/" + MAIL;
+  if (!F) return;
   const M = {
     n: "Please enter your name.",
     e: "Please enter a valid email address.",
     s: "Please add a subject.",
     m: "Please write a message (10+ characters).",
   };
-  F.addEventListener("submit", async (ev) => {
-    ev.preventDefault();
-    const box = $("#msg");
-    box.className = "msg";
+  const check = () => {
     let ok = 1;
     for (const k of ["n", "e", "s", "m"]) {
       const v = $("#" + k).value.trim();
@@ -897,7 +937,36 @@ function form() {
       $("#" + k).setAttribute("aria-invalid", bad);
       if (bad) ok = 0;
     }
-    if (!ok || F.elements["_honey"].value) return;
+    return ok;
+  };
+  const text = () =>
+    "Hello Eman, I found you through your portfolio.\n\n" +
+    "Name: " + $("#n").value.trim() + "\n" +
+    "Email: " + $("#e").value.trim() + "\n" +
+    "Subject: " + $("#s").value.trim() + "\n\n" +
+    $("#m").value.trim();
+  const waLink = () => "https://wa.me/" + WA + "?text=" + encodeURIComponent(text());
+  const mailLink = () =>
+    "mailto:" + MAIL + "?subject=" + encodeURIComponent("Portfolio: " + $("#s").value.trim()) +
+    "&body=" + encodeURIComponent(text());
+
+  /* WhatsApp button: opens WhatsApp chat with the message already typed */
+  const wab = $("#wa");
+  if (wab)
+    wab.addEventListener("click", () => {
+      const box = $("#msg");
+      box.className = "msg";
+      if (!check()) return;
+      window.open(waLink(), "_blank", "noopener");
+      box.className = "msg ok";
+      box.textContent = "WhatsApp opened with your message. Just press send there.";
+    });
+
+  F.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const box = $("#msg");
+    box.className = "msg";
+    if (!check() || F.elements["_honey"].value) return;
     F.classList.add("ld");
     $("#sl").textContent = "Sending…";
     $("#sb").disabled = true;
@@ -906,6 +975,7 @@ function form() {
       name: d.name,
       email: d.email,
       message: d.message,
+      _replyto: d.email,
       _subject: "Portfolio: " + d.subject,
       _template: "table",
       _captcha: "false",
@@ -924,17 +994,19 @@ function form() {
       if (!r.ok || String(j.success) === "false")
         throw new Error(j.message || r.status);
       box.className = "msg ok";
-      box.textContent =
-        "Thank you! Your message was sent. I will reply by email soon.";
+      box.innerHTML =
+        'Thank you! Your message was sent to my Gmail. I will reply soon. For a faster reply you can also <a href="' +
+        waLink() +
+        '" target="_blank" rel="noopener" style="text-decoration:underline">message me on WhatsApp</a>.';
       F.reset();
     } catch (_) {
       box.className = "msg bad";
       box.innerHTML =
-        'The message could not be sent. Please email <a href="mailto:' +
-        MAIL +
-        '" style="text-decoration:underline">' +
-        MAIL +
-        "</a> directly.";
+        'The email service did not respond. Please send your message directly: <a href="' +
+        waLink() +
+        '" target="_blank" rel="noopener" style="text-decoration:underline">WhatsApp</a> or <a href="' +
+        mailLink() +
+        '" style="text-decoration:underline">Gmail</a>.';
     }
     F.classList.remove("ld");
     $("#sl").textContent = "Send message";

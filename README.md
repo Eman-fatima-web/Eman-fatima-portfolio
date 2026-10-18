@@ -18,7 +18,7 @@ assets/cv               Eman-Fatima-CV.pdf  <- used by every "Download CV" butto
 - Theme: the sun/moon button in the navbar switches light/dark (choice is saved; first visit follows the device setting).
 - New CV: replace `assets/cv/Eman-Fatima-CV.pdf` (keep the same file name).
 
-## Contact form (messages go to emanfatima13308@gmail.com)
+## Contact form (messages go to emanfatima13308@gmail.com + WhatsApp +92 327 0218838)
 The form uses FormSubmit (no backend needed). After deploying the site:
 1. Send one test message from the live site.
 2. Open the Gmail inbox, find the "Activate Form" email from FormSubmit, click the confirm button (one time only).
@@ -26,3 +26,5 @@ The form uses FormSubmit (no backend needed). After deploying the site:
 It works on a deployed site (Netlify/Vercel/GitHub Pages), not by double-clicking index.html.
 
 Deploy: drag this folder into Netlify.
+
+WhatsApp: the "Send on WhatsApp instead" button opens a chat with +92 327 0218838 with the message pre-filled. If the email service is ever unreachable, the error message also offers WhatsApp and Gmail links.
